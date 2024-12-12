@@ -84,7 +84,7 @@ public class TicketingHandler extends TextWebSocketHandler {
             // Send ticket information to the client
             session.sendMessage(new TextMessage("Available tickets: " + ticketPool.getAvailableTickets() +
                     " Sold tickets: " + ticketPool.getTicketsSold()
-            );
+            ));
         }
     }
 
