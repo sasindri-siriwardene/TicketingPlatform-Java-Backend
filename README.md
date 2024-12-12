@@ -30,7 +30,7 @@ mvn spring-boot:run
 1.🛠️ **Configuration**:  
 
 - Ensure the config.json file is present in the src/main/resources directory with the necessary configuration parameters (e.g., ticket release rate, customer retrieval rate, total tickets, max ticket capacity).
-- Ticket Release Rate: Frequency of ticket availability.
+- Ticket Release Rate: Frequency of tickets published by the vendor 
 - Customer Retrieval Rate: Speed of customer processing.
 - Total Tickets: Number of total  tickets added by a vendor.
 - Max Ticket Capacity: Maximum number of tickets allowed in the system at once.
