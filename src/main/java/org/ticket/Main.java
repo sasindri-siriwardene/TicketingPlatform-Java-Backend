@@ -8,8 +8,15 @@ import org.ticket.websocket.SpringBootStarter;
 import org.ticket.websocket.TicketingHandler;
 
 import java.util.Scanner;
-
+/**
+ * The main entry point for the ticketing application.
+ */
 public class Main {
+    /**
+     * The main method to start the application.
+     *
+     * @param args the command line arguments
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int cli = scanner.nextInt();

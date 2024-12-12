@@ -14,7 +14,9 @@ import java.io.IOException;
 public class ConfigController {
 
     private final ObjectMapper objectMapper = new ObjectMapper();
-
+    /**
+     * Runs the vendor thread to add tickets to the pool.
+     */
     @GetMapping("/api/config")
     public SystemConfig getConfig() throws IOException {
         // Replace with your file path
@@ -23,7 +25,13 @@ public class ConfigController {
         System.out.println(objectMapper.readValue(jsonFile, SystemConfig.class));
         return objectMapper.readValue(jsonFile, SystemConfig.class);
     }
-
+    /**
+     * Sets the system configuration to the JSON file.
+     *
+     * @param config the system configuration to set
+     * @return the updated system configuration
+     * @throws IOException if an I/O error occurs
+     */
     @PostMapping("/api/config")
     public SystemConfig setConfig(@RequestBody SystemConfig config) throws IOException {
 

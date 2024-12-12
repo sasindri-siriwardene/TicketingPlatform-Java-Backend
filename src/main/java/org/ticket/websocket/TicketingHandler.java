@@ -16,7 +16,9 @@ import org.ticket.models.Vendor;
 import java.io.File;
 import java.io.IOException;
 import java.util.Random;
-
+/**
+ * Handles WebSocket connections for ticketing.
+ */
 @Component
 public class TicketingHandler extends TextWebSocketHandler {
     private TicketPool ticketPool;
@@ -32,7 +34,11 @@ public class TicketingHandler extends TextWebSocketHandler {
 
     private volatile boolean running = true;
 
-
+    /**
+     * Loads the system configuration from a JSON file.
+     *
+     * @throws IOException if an I/O error occurs
+     */
     public void loadConfig() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         try {
@@ -51,7 +57,12 @@ public class TicketingHandler extends TextWebSocketHandler {
             e.printStackTrace();
         }
     }
-
+    /**
+     * Called after a WebSocket connection is established.
+     *
+     * @param session the WebSocket session
+     * @throws Exception if an error occurs
+     */
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
 
@@ -87,7 +98,12 @@ public class TicketingHandler extends TextWebSocketHandler {
             ));
         }
     }
-
+    /**
+     * Closes the WebSocket connection and stops the threads.
+     *
+     * @param session the WebSocket session
+     * @throws IOException if an I/O error occurs
+     */
     private void closeConnection(WebSocketSession session) throws IOException {
         running = false; // Stop the threads
         System.out.println("running stat" + this.running);
@@ -95,7 +111,11 @@ public class TicketingHandler extends TextWebSocketHandler {
         System.out.println("Connection closed and threads reset");
         // Reset threads or perform any necessary cleanup here
     }
-
+    /**
+     * Checks if the handler is running.
+     *
+     * @return true if the handler is running, false otherwise
+     */
     public synchronized boolean isRunning() {
         return running;
     }

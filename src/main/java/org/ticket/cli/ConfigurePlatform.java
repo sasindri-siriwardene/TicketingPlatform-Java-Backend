@@ -53,7 +53,7 @@ public class ConfigurePlatform {
             System.out.println("Customer retrieval rate(Customer buying per second): ");
             try {
                 customerRetrievalRate = scanner.nextDouble();
-                if (customerRetrievalRate <= 0 || customerRetrievalRate > ticketReleaseRate) {
+                if (customerRetrievalRate <= 0 || customerRetrievalRate < ticketReleaseRate) {
                     System.out.println("Customer retrieval  rate must be positive and higher " +
                             "than ticket release rate");
                 }
@@ -61,7 +61,7 @@ public class ConfigurePlatform {
                 System.out.println("Customer retrieval rate must be a valid input");
                 scanner.next(); // Clear the invalid input
             }
-        } while (customerRetrievalRate <= 0 || customerRetrievalRate > ticketReleaseRate);
+        } while (customerRetrievalRate <= 0 || customerRetrievalRate < ticketReleaseRate);
 
 
         do {
